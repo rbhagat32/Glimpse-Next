@@ -1,6 +1,5 @@
 interface UserTypes {
   _id: mongoose.Types.ObjectId;
-  name: string;
   username: string;
   email: string;
   password: string;

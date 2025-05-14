@@ -11,14 +11,6 @@ export function SignUpForm() {
     <form action={formAction}>
       <div>
         <label>
-          Name:
-          <input name="name" type="text" defaultValue={state.prevFormData?.name || ""} />
-        </label>
-        {state.errors.name && <span>{state.errors.name}</span>}
-      </div>
-
-      <div>
-        <label>
           Username:
           <input name="username" type="text" defaultValue={state.prevFormData?.username || ""} />
         </label>
