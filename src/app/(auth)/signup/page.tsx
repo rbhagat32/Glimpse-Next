@@ -10,7 +10,6 @@ import { toast } from "sonner";
 export default function SignUpForm() {
   const initialState: FormState = { errors: {}, prevFormData: {} };
   const [state, formAction, isPending] = useActionState(signupAction, initialState);
-  console.log(state);
 
   useEffect(() => {
     if (state.errors.username) {
@@ -32,9 +31,19 @@ export default function SignUpForm() {
       </div>
 
       <div className="flex flex-col gap-2">
-        <Input type="text" label="Username" defaultValue={state.prevFormData?.username} />
-        <Input type="email" label="Email" defaultValue={state.prevFormData?.email} />
-        <Input type="password" label="Password" defaultValue={state.prevFormData?.password} />
+        <Input
+          name="username"
+          type="text"
+          label="Username"
+          defaultValue={state.prevFormData?.username}
+        />
+        <Input name="email" type="email" label="Email" defaultValue={state.prevFormData?.email} />
+        <Input
+          name="password"
+          type="password"
+          label="Password"
+          defaultValue={state.prevFormData?.password}
+        />
       </div>
 
       <Button type="submit" disabled={isPending}>

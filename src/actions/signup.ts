@@ -28,7 +28,7 @@ const signupAction = async (_prevState: FormState, formData: FormData): Promise<
     const errors: FormState["errors"] = {};
     result.error.errors.forEach((err) => {
       const field = err.path[0] as keyof FormState["errors"];
-      errors[field] = err.message;
+      if (!errors[field]) errors[field] = err.message; // Avoid overwriting existing errors
     });
     return { errors, prevFormData: data };
   }

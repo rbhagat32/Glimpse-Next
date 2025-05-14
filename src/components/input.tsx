@@ -1,13 +1,15 @@
 interface InputProps {
+  name: string;
   type: "text" | "email" | "password";
   label: string;
   defaultValue?: string;
 }
 
-export default function Input({ type, label, defaultValue }: InputProps) {
+export default function Input({ name, type, label, defaultValue }: InputProps) {
   return (
     <div className="relative">
       <input
+        name={name}
         id={`id_${label}`}
         type={type}
         placeholder=" "
