@@ -104,4 +104,5 @@ const Button = React.forwardRef<HTMLButtonElement, PropTypes>(
   }
 );
 
+Button.displayName = "Button";
 export { Button };
