@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import chalk from "chalk";
 
 interface CachedConnectionTypes {
   conn: mongoose.Connection | null;
@@ -13,12 +14,12 @@ const cached: CachedConnectionTypes = global.mongooseCache ?? { conn: null, prom
 
 export const connectDB = async (): Promise<mongoose.Connection> => {
   if (cached.conn) {
-    console.log("➡️ Using Existing Database Connection !");
+    console.log(chalk.bold.blue("Using Existing Database Connection !"));
     return cached.conn;
   }
 
   if (!process.env.MONGODB_URI) {
-    throw new Error("❌ MONGODB_URI is not defined !");
+    throw new Error(chalk.bold.red("MONGODB_URI is not defined !"));
   }
 
   if (!cached.promise) {
@@ -30,6 +31,6 @@ export const connectDB = async (): Promise<mongoose.Connection> => {
   cached.conn = await cached.promise;
   global.mongooseCache = cached;
 
-  console.log("➡️ New Database Connection Established !");
+  console.log(chalk.bold.blue("New Database Connection Established !"));
   return cached.conn;
 };
