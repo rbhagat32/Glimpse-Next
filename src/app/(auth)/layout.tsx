@@ -39,7 +39,7 @@ export default function AuthLayout({ children }: Readonly<{ children: React.Reac
         </div>
       </main>
 
-      <Toaster position="top-right" duration={2000} />
+      <Toaster position="top-right" duration={2000} richColors />
     </>
   );
 }
