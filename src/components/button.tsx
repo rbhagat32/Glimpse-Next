@@ -46,9 +46,9 @@ const GradientButton = styled(motion.button)`
   .Overlay {
     background-image: linear-gradient(
       -75deg,
-      rgba(255, 255, 255, 0.1) calc(var(--x) + 20%),
-      rgba(255, 255, 255, 0.5) calc(var(--x) + 25%),
-      rgba(255, 255, 255, 0.1) calc(var(--x) + 100%)
+      rgba(166, 132, 255, 0.6) calc(var(--x) + 20%),
+      rgba(166, 132, 255, 1) calc(var(--x) + 25%),
+      rgba(166, 132, 255, 0.6) calc(var(--x) + 100%)
     );
 
     mask: linear-gradient(black, black) content-box, linear-gradient(black, black);

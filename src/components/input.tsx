@@ -15,7 +15,7 @@ export default function Input({ name, type, label, defaultValue }: InputProps) {
         placeholder=" "
         defaultValue={defaultValue || ""}
         autoComplete="off"
-        className="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none text-white border-stone-700 focus:border-stone-400 focus:outline-none focus:ring-0 peer"
+        className="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 appearance-none text-white border-stone-700 focus:border-violet-400 focus:outline-none focus:ring-0 peer"
       />
       <label
         htmlFor={`id_${label}`}
