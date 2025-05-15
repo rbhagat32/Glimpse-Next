@@ -11,6 +11,7 @@ interface UserTypes {
   posts: mongoose.Types.ObjectId[];
   likedPosts: mongoose.Types.ObjectId[];
   stories: mongoose.Types.ObjectId[];
+  matchPassword: (enteredPassword: string) => Promise<boolean>;
   createdAt: Date;
   updatedAt: Date;
 }

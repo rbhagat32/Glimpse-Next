@@ -1,27 +1,25 @@
 "use server";
 
-import { signupSchema, type SignupSchema } from "@/schemas/signup";
+import { loginSchema, type LoginSchema } from "@/schemas/login";
 import { connectDB } from "@/lib/db";
 import { UserModel } from "@/models/user";
 import { redirect } from "next/navigation";
 
 export type FormState = {
-  errors: Partial<Record<keyof SignupSchema, string>>;
+  errors: Partial<Record<keyof LoginSchema, string>>;
   prevFormData?: {
     username?: string;
-    email?: string;
     password?: string;
   };
 };
 
-const signupAction = async (_prevState: FormState, formData: FormData): Promise<FormState> => {
+const loginAction = async (_prevState: FormState, formData: FormData): Promise<FormState> => {
   const data = {
     username: formData.get("username") as string,
-    email: formData.get("email") as string,
     password: formData.get("password") as string,
   };
 
-  const result = signupSchema.safeParse(data);
+  const result = loginSchema.safeParse(data);
 
   if (!result.success) {
     const errors: FormState["errors"] = {};
@@ -33,9 +31,14 @@ const signupAction = async (_prevState: FormState, formData: FormData): Promise<
   }
 
   await connectDB();
-  await UserModel.create(result.data);
+  const user: UserTypes = await UserModel.findOne({ username: data.username }).select("+password");
+
+  if (!user) return { errors: { username: "Invalid credentials !" }, prevFormData: data };
+
+  const checkPassword = await user.matchPassword(data.password);
+  if (!checkPassword) return { errors: { password: "Invalid credentials !" }, prevFormData: data };
 
   redirect("/");
 };
 
-export { signupAction };
+export { loginAction };
