@@ -3,6 +3,7 @@
 import { type FormState, loginAction } from "@/actions/login";
 import { Button } from "@/components/button";
 import Input from "@/components/input";
+import Loader from "@/components/loader";
 import Link from "next/link";
 import { useActionState, useEffect } from "react";
 import { toast } from "sonner";
@@ -44,7 +45,7 @@ export default function LoginForm() {
       </div>
 
       <Button type="submit" disabled={isPending}>
-        Log In
+        {!isPending ? "Log In" : <Loader />}
       </Button>
 
       <div className="text-center text-sm">

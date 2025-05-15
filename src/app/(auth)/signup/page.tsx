@@ -3,6 +3,7 @@
 import { type FormState, signupAction } from "@/actions/signup";
 import { Button } from "@/components/button";
 import Input from "@/components/input";
+import Loader from "@/components/loader";
 import Link from "next/link";
 import { useActionState, useEffect } from "react";
 import { toast } from "sonner";
@@ -47,7 +48,7 @@ export default function SignUpForm() {
       </div>
 
       <Button type="submit" disabled={isPending}>
-        Sign Up
+        {!isPending ? "Sign Up" : <Loader />}
       </Button>
 
       <div className="text-center text-sm">
