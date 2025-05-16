@@ -4,6 +4,7 @@ import { loginSchema, type LoginSchema } from "@/schemas/login";
 import { connectDB } from "@/lib/db";
 import { UserModel } from "@/models/user";
 import { redirect } from "next/navigation";
+import { createSession } from "@/lib/session";
 
 export type FormState = {
   errors: Partial<Record<keyof LoginSchema, string>>;
@@ -38,6 +39,7 @@ const loginAction = async (_prevState: FormState, formData: FormData): Promise<F
   const checkPassword = await user.matchPassword(data.password);
   if (!checkPassword) return { errors: { password: "Invalid credentials !" }, prevFormData: data };
 
+  await createSession(user._id.toString());
   redirect("/");
 };
 
