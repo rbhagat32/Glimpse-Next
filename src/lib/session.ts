@@ -7,8 +7,7 @@ export async function createSession(userId: string) {
   const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // 7 days
   const token = await encrypt({ userId, expiresAt });
 
-  const cookieStore = await cookies();
-  cookieStore.set("token", token, {
+  (await cookies()).set("token", token, {
     httpOnly: true,
     secure: true,
     expires: expiresAt,
@@ -16,8 +15,7 @@ export async function createSession(userId: string) {
 }
 
 export async function deleteSession() {
-  const cookieStore = await cookies();
-  cookieStore.delete("token");
+  (await cookies()).delete("token");
 }
 
 type SessionPayload = {
