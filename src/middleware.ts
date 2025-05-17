@@ -8,6 +8,9 @@ export default async function middleware(req: NextRequest) {
   const path = req.nextUrl.pathname;
   const isPublicRoute = publicRoutes.includes(path);
 
+  const isStaticAsset = path.startsWith("/_next") || path === "/favicon.ico";
+  if (isStaticAsset) return NextResponse.next();
+
   const cookie = (await cookies()).get("token")?.value;
   const decoded = await decrypt(cookie);
 
