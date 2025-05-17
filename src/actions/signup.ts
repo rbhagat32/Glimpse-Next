@@ -4,6 +4,7 @@ import { signupSchema, type SignupSchema } from "@/schemas/signup";
 import { connectDB } from "@/lib/db";
 import { UserModel } from "@/models/user";
 import { redirect } from "next/navigation";
+import { createSession } from "@/lib/session";
 
 export type FormState = {
   errors: Partial<Record<keyof SignupSchema, string>>;
@@ -33,8 +34,9 @@ const signupAction = async (_prevState: FormState, formData: FormData): Promise<
   }
 
   await connectDB();
-  await UserModel.create(result.data);
+  const user = await UserModel.create(result.data);
 
+  await createSession(user._id.toString());
   redirect("/");
 };
 
