@@ -8,10 +8,7 @@ const userSchema = new mongoose.Schema(
     password: { type: String, required: true, select: false },
 
     bio: { type: String },
-    avatar: {
-      public_id: { type: String },
-      url: { type: String },
-    },
+    avatar: { public_id: { type: String }, url: { type: String } },
 
     posts: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],
     likedPosts: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],

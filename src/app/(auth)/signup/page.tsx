@@ -1,6 +1,6 @@
 "use client";
 
-import { type FormState, signupAction } from "@/actions/signup";
+import { type FormState, signupAction } from "@/actions/auth/signup";
 import { Button } from "@/components/ui/button";
 import Input from "@/components/ui/input";
 import Loader from "@/components/ui/loader";

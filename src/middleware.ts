@@ -22,5 +22,18 @@ export default async function middleware(req: NextRequest) {
     return NextResponse.redirect(new URL("/", req.nextUrl));
   }
 
-  return NextResponse.next();
+  const requestHeaders = new Headers(req.headers);
+  if (decoded && typeof decoded.userId === "string") {
+    requestHeaders.set("x-user-id", decoded.userId);
+  }
+
+  return NextResponse.next({
+    request: {
+      headers: requestHeaders,
+    },
+  });
 }
+
+export const config = {
+  matcher: ["/((?!_next|api|static|favicon.ico).*)"],
+};
