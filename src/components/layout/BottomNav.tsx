@@ -1,10 +1,12 @@
-import { fetchUser } from "@/actions/data/user";
+"use client";
+
+import { useGetUser } from "@/contexts/UserContext";
 import { SquarePlus, HouseIcon, Search, Clapperboard } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function BottomNav() {
-  const user = await fetchUser();
+export default function BottomNav() {
+  const user = useGetUser();
 
   return (
     <nav className="h-[8vh] px-10 flex justify-between items-center">

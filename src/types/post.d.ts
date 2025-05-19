@@ -6,7 +6,7 @@ interface PostTypes {
     public_id: string;
     url: string;
   };
-  likes: mongoose.Types.ObjectId[] | string[];
+  likes: (mongoose.Types.ObjectId | string)[];
   comments: {
     user: mongoose.Types.ObjectId | string;
     content: string;

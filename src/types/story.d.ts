@@ -5,8 +5,8 @@ interface StoryTypes {
     public_id: string;
     url: string;
   };
-  seenBy: mongoose.Types.ObjectId[] | string[];
-  likedBy: mongoose.Types.ObjectId[] | string[];
+  seenBy: (mongoose.Types.ObjectId | string)[];
+  likedBy: (mongoose.Types.ObjectId | string)[];
   expiresAt: Date;
   isExpired: () => boolean;
   createdAt: Date;

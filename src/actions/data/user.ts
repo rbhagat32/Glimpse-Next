@@ -1,6 +1,7 @@
 import { headers } from "next/headers";
 import { connectDB } from "@/lib/db";
 import { UserModel } from "@/models/user";
+import { sanitizeUser } from "@/helpers/sanitizeUser";
 
 export const fetchUser = async () => {
   const userId = (await headers()).get("x-user-id");
@@ -10,5 +11,5 @@ export const fetchUser = async () => {
   const user: UserTypes | null = await UserModel.findById(userId);
   if (!user) return null;
 
-  return user;
+  return sanitizeUser(user);
 };

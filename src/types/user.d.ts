@@ -8,9 +8,9 @@ interface UserTypes {
     public_id: string | null;
     url: string | null;
   };
-  posts: mongoose.Types.ObjectId[] | string[];
-  likedPosts: mongoose.Types.ObjectId[] | string[];
-  stories: mongoose.Types.ObjectId[] | string[];
+  posts: (mongoose.Types.ObjectId | string)[];
+  likedPosts: (mongoose.Types.ObjectId | string)[];
+  stories: (mongoose.Types.ObjectId | string)[];
   matchPassword: (enteredPassword: string) => Promise<boolean>;
   createdAt: Date;
   updatedAt: Date;
