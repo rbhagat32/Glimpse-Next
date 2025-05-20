@@ -42,7 +42,7 @@ const links = (user: UserTypes) => {
       component: (
         <div className="size-6 rounded-full overflow-hidden border-2">
           <Image
-            src={user.avatar?.url || "/placeholder.jpg"}
+            src={user?.avatar?.url || "/placeholder.jpg"}
             alt="Profile Image"
             width={28}
             height={28}

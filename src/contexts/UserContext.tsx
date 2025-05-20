@@ -24,7 +24,7 @@ export function UserProvider({ children, initialUser }: UserProviderProps) {
 export const useGetUser = () => {
   const context = useContext(UserContext);
   if (!context) {
-    throw new Error("UserContext must be used within a UserProvider");
+    throw new Error("useGetUser must be used within a UserProvider");
   }
   return context.user;
 };

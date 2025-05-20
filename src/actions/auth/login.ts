@@ -36,7 +36,7 @@ const loginAction = async (_prevState: FormState, formData: FormData): Promise<F
 
   if (!user) return { errors: { username: "Invalid credentials !" }, prevFormData: data };
 
-  const checkPassword = await user.matchPassword(data.password);
+  const checkPassword = await user.matchPassword!(data.password);
   if (!checkPassword) return { errors: { password: "Invalid credentials !" }, prevFormData: data };
 
   await createSession(user._id.toString());
