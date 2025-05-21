@@ -8,7 +8,7 @@ export default async function HomeLayout({ children }: Readonly<{ children: Reac
   return (
     <main>
       <UserProvider initialUser={user}>
-        <main className="w-full md:w-[80vw] lg:w-[60vw] xl:w-[40vw] mx-auto">
+        <main className="mx-auto max-w-screen-sm border-x border-stone-700">
           <section>{children}</section>
           <BottomNav />
         </main>
