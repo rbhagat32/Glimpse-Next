@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 interface PropTypes {
-  src?: string;
+  src?: string | null;
   size?: string;
 }
 

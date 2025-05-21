@@ -56,7 +56,7 @@ const links = (user: UserTypes) => {
     },
     {
       href: "/profile",
-      component: <Avatar src={user.avatar?.url!} />,
+      component: <Avatar src={user.avatar?.url} />,
     },
   ];
 };
