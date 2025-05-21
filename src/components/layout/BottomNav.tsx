@@ -2,14 +2,15 @@
 
 import { useGetUser } from "@/contexts/UserContext";
 import { SquarePlus, HouseIcon, Search, Clapperboard } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
+import { Avatar } from "../ui/avatar";
+import { Icon } from "../ui/icon";
 
 export default function BottomNav() {
   const user = useGetUser();
 
   return (
-    <nav className="h-[8vh] px-10 flex justify-between items-center">
+    <nav className="py-5 px-10 flex justify-between items-center">
       {links(user!).map((link, i) => (
         <Link key={i} href={link.href}>
           {link.component}
@@ -23,33 +24,39 @@ const links = (user: UserTypes) => {
   return [
     {
       href: "/",
-      component: <HouseIcon />,
+      component: (
+        <Icon>
+          <HouseIcon />
+        </Icon>
+      ),
     },
     {
       href: "/explore",
-      component: <Search />,
+      component: (
+        <Icon>
+          <Search />
+        </Icon>
+      ),
     },
     {
       href: "/create",
-      component: <SquarePlus />,
+      component: (
+        <Icon>
+          <SquarePlus />
+        </Icon>
+      ),
     },
     {
       href: "/",
-      component: <Clapperboard />,
+      component: (
+        <Icon>
+          <Clapperboard />
+        </Icon>
+      ),
     },
     {
       href: "/profile",
-      component: (
-        <div className="size-6 rounded-full overflow-hidden border-2">
-          <Image
-            src={user?.avatar?.url || "/placeholder.jpg"}
-            alt="Profile Image"
-            width={28}
-            height={28}
-            className="object-cover"
-          />
-        </div>
-      ),
+      component: <Avatar src={user.avatar?.url!} />,
     },
   ];
 };

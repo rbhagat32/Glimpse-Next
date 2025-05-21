@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <>
-      <html lang="en" className="bg-stone-950 text-white">
+      <html lang="en" className="bg-zinc-900 text-white">
         <body className="antialiased">{children}</body>
       </html>
       <Toaster position="top-right" duration={2000} richColors />

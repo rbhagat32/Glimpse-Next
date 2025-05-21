@@ -6,13 +6,11 @@ export default async function HomeLayout({ children }: Readonly<{ children: Reac
   const user = await fetchUser();
 
   return (
-    <main>
-      <UserProvider initialUser={user}>
-        <main className="mx-auto max-w-screen-sm border-x border-stone-700">
-          <section>{children}</section>
-          <BottomNav />
-        </main>
-      </UserProvider>
-    </main>
+    <UserProvider initialUser={user}>
+      <main className="h-screen mx-auto max-w-screen-sm border-x border-zinc-700 flex flex-col">
+        <section className="flex-1 overflow-y-auto">{children}</section>
+        <BottomNav />
+      </main>
+    </UserProvider>
   );
 }

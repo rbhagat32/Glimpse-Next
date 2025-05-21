@@ -20,7 +20,7 @@ const buttonStyles = {
 
 const GradientButton = styled(motion.button)`
   background: radial-gradient(circle at 50% 0%, rgba(250, 250, 250, 0.05) 0%, transparent 60%),
-    rgba(10, 10, 10, 1);
+    oklch(21% 0.006 285.885);
 
   position: relative;
   padding: 10px 24px;
@@ -46,9 +46,9 @@ const GradientButton = styled(motion.button)`
   .Overlay {
     background-image: linear-gradient(
       -75deg,
-      rgba(166, 132, 255, 0.6) calc(var(--x) + 20%),
-      rgba(166, 132, 255, 1) calc(var(--x) + 25%),
-      rgba(166, 132, 255, 0.6) calc(var(--x) + 100%)
+      oklch(62.3% 0.214 259.815) calc(var(--x) + 20%),
+      oklch(62.3% 0.214 259.815) calc(var(--x) + 25%),
+      oklch(62.3% 0.214 259.815) calc(var(--x) + 100%)
     );
 
     mask: linear-gradient(black, black) content-box, linear-gradient(black, black);
