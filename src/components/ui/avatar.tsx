@@ -6,9 +6,7 @@ interface PropTypes {
 }
 
 const Avatar = ({ src, size = "size-7.5" }: PropTypes) => {
-  console.log(size);
   const dimension = Number(size.split("-")[1]) * 4;
-  console.log(dimension);
 
   return (
     <div className={`${size} rounded-full overflow-hidden`}>
