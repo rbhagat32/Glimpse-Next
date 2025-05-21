@@ -7,10 +7,7 @@ interface PropTypes {
 
 const Icon = ({ children, type }: PropTypes) => {
   return (
-    <button
-      type={type || "button"}
-      className="p-2 hover:bg-zinc-700 rounded-md cursor-pointer duration-300"
-    >
+    <button type={type || "button"} className="p-2 hover:bg-zinc-700 rounded-md duration-300">
       {children}
     </button>
   );

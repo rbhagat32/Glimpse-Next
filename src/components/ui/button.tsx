@@ -10,7 +10,7 @@ interface PropTypes extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const buttonStyles = {
-  base: "relative px-6 py-[10px] rounded-md cursor-pointer text-white",
+  base: "relative px-6 py-[10px] rounded-md text-white",
   sizes: {
     sm: "text-sm",
     md: "text-base",
