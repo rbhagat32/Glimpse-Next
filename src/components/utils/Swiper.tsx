@@ -29,7 +29,7 @@ export function Swiper({ children }: { children: React.ReactNode }) {
     if (!isDown.current) return;
     e.preventDefault();
     const x = e.pageX - (ref.current?.offsetLeft || 0);
-    const walk = (x - startX.current) * 1; // control speed of scroll
+    const walk = (x - startX.current) * 2; // control speed of scroll
     if (ref.current) {
       ref.current.scrollLeft = scrollLeft.current - walk;
     }
@@ -42,7 +42,7 @@ export function Swiper({ children }: { children: React.ReactNode }) {
       onMouseLeave={onMouseLeave}
       onMouseUp={onMouseUp}
       onMouseMove={onMouseMove}
-      className="overflow-x-auto flex gap-2 hide-scrollbar select-none"
+      className="overflow-x-auto flex gap-2 select-none"
     >
       {children}
     </div>

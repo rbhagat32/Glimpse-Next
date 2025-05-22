@@ -1,4 +1,4 @@
-import BottomNav from "@/components/layout/BottomNav";
+import { BottomNav } from "@/components/layout/BottomNav";
 import { fetchUser } from "@/actions/data/user";
 import { UserProvider } from "@/contexts/UserContext";
 

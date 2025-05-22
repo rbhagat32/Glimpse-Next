@@ -6,11 +6,11 @@ import Link from "next/link";
 import { Avatar } from "../ui/avatar";
 import { Icon } from "../ui/icon";
 
-export default function BottomNav() {
+const BottomNav = () => {
   const user = useGetUser();
 
   return (
-    <nav className="py-5 px-10 flex justify-between items-center">
+    <nav className="py-2 px-10 flex justify-between items-center">
       {links(user!).map((link, i) => (
         <Link key={i} href={link.href}>
           {link.component}
@@ -18,7 +18,9 @@ export default function BottomNav() {
       ))}
     </nav>
   );
-}
+};
+
+export { BottomNav };
 
 const links = (user: UserTypes) => {
   return [
