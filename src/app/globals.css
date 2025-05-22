@@ -8,3 +8,8 @@ img {
   user-select: none;
   -webkit-user-drag: none;
 }
+
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
